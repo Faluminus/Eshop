@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 
+
 class AdminController extends Controller
 {
     public function uploadproduct(Request $request){
@@ -21,6 +22,11 @@ class AdminController extends Controller
         
         $data->save();
 
+        return redirect()->back();
+    }
+    public function deleteproduct($id){
+        $data = product::find($id);
+        $data->delete();
         return redirect()->back();
     }
 }

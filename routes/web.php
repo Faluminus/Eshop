@@ -5,9 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'index']);
 
 Route::middleware([
     'auth:sanctum',
@@ -18,6 +16,7 @@ Route::middleware([
 });
 
 Route::post('/uploadproduct', [AdminController::class,'uploadproduct']);
+Route::get('/deleteproduct/{id}', [AdminController::class,'deleteproduct']);
 
 
 

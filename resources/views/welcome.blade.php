@@ -54,7 +54,17 @@
                     </header>
 
                     <main class="mt-6">
-
+                        <div class="flex flex-row">
+                        @foreach($data as $product)
+                        <div class="flex flex-col">
+                            <a><img src="/productimage/{{$product->image}}" alt=""></a>
+                            <h4>{{$product->title}}</h4>
+                            <a>{{$product->price}}$</a>
+                            <a>{{$product->description}}</a>
+                            <Button>Throw to cart</Button>
+                        </div>
+                        @endforeach
+                        </div>
                     </main>
                     
                 </div>
