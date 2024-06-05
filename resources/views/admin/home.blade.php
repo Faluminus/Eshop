@@ -28,7 +28,7 @@
     <td class="p-6">{{$product -> price}}</td>
     <td class="p-6">{{$product -> description}}</td>
     <td class="p-6"><img src="/productimage/{{$product -> image}}" width="200px" ></td>
-    <td><Button class="btn btn-primary">Update</Button></td>
+    <td><a class="btn btn-primary" href="{{url('updateview',$product->id)}}">Update</a></td>
     <td><a class="btn btn-primary" href="{{url('deleteproduct',$product->id)}}">Delete</a></td>
   </tr>
   @endforeach

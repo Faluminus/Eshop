@@ -1,15 +1,24 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-welcome />
-            </div>
-        </div>
+    <h1>Stuff in cart</h1>
+    <div class="flex flex-col">
+    @foreach($cart as $product)
+    <div class="flex flex-row gap-6">
+        <h2>{{$product['title']}}</h2>
+        <h2>{{$product['price'] * $product['quantity']}}$</h2>
+        <h2>{{$product['quantity']}}</h2>
+        <form action="{{url('addcart',$product['id'])}}" method="post">
+            @csrf
+            <Button>Add more<Button>
+        </form>
+        <form action="{{url('removecart',$product['id'])}}" method="post"> 
+            @csrf
+            <Button>Remove one<Button>
+        </form>
+    </div>
+    @endforeach
+    <form action="{{url('cleancart')}}" method="post"> 
+            @csrf
+            <Button>Send order<Button>
+    </form>
     </div>
 </x-app-layout>

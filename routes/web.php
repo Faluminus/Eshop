@@ -17,6 +17,11 @@ Route::middleware([
 
 Route::post('/uploadproduct', [AdminController::class,'uploadproduct']);
 Route::get('/deleteproduct/{id}', [AdminController::class,'deleteproduct']);
+Route::get('/updateview/{id}', [AdminController::class,'updateview']);
+Route::post('/updateproduct/{id}', [AdminController::class,'updateproduct']);
+Route::post('/addcart/{id}', [HomeController::class,'addcart']);
+Route::post('/removecart/{id}', [HomeController::class,'removecart']);
+Route::post('/cleancart', [HomeController::class,'cleancart']);
 
 
 

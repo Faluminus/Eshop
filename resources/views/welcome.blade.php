@@ -61,7 +61,11 @@
                             <h4>{{$product->title}}</h4>
                             <a>{{$product->price}}$</a>
                             <a>{{$product->description}}</a>
-                            <Button>Throw to cart</Button>
+                        
+                            <form action="{{url('addcart',$product->id)}}" method="post">
+                                @csrf
+                                <Button>Throw to cart</Button>
+                            </form>
                         </div>
                         @endforeach
                         </div>
