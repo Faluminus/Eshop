@@ -56,21 +56,22 @@
                     <main class="mt-6">
                         <div class="flex flex-row">
                         @foreach($data as $product)
-                        <div class="flex flex-col">
-                            <a><img src="/productimage/{{$product->image}}" alt=""></a>
-                            <h4>{{$product->title}}</h4>
-                            <a>{{$product->price}}$</a>
-                            <a>{{$product->description}}</a>
-                        
-                            <form action="{{url('addcart',$product->id)}}" method="post">
+                        <div class="flex flex-col gap-6">
+                            <div class="flex flex-col">
+                                <a><img src="/productimage/{{$product->image}}" alt=""></a>
+                                <h4>{{$product->title}}</h4>
+                                <a>{{$product->price}}$</a>
+                                <a>{{$product->description}}</a>
+                            </div> 
+                            <form class="flex justify-center items-center" action="{{url('addcart',$product->id)}}" method="post">
                                 @csrf
                                 <Button>Throw to cart</Button>
                             </form>
+                            <a href="{{url('detail',$product->id)}}">Detail</a>
                         </div>
                         @endforeach
                         </div>
                     </main>
-                    
                 </div>
             </div>
         </div>

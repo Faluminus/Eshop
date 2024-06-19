@@ -75,6 +75,12 @@ class HomeController extends Controller
             return redirect('login');
         }
     }
+
+    public function detail($id){
+        $product = Product::find($id);
+        return view('detail',compact('product'));
+    }
+
     public function cleancart(Request $request)
     {
         if(Auth::id()){

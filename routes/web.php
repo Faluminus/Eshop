@@ -22,6 +22,7 @@ Route::post('/updateproduct/{id}', [AdminController::class,'updateproduct']);
 Route::post('/addcart/{id}', [HomeController::class,'addcart']);
 Route::post('/removecart/{id}', [HomeController::class,'removecart']);
 Route::post('/cleancart', [HomeController::class,'cleancart']);
+Route::get('/detail/{id}', [HomeController::class,'detail']);
 
 
 
